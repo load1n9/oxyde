@@ -39,7 +39,7 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
 console.log(`code made by @loading...#9877`)
  }
 function download(text, name, type) {
-  var a = document.getElementById("a");
+  var a = document.getElementById("output");
   var file = new Blob([text], {type: type});
   a.href = URL.createObjectURL(file);
   a.download = name;

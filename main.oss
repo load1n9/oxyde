@@ -1,57 +1,65 @@
-@buttoncolorone:#6b6b6b;
-@buttoncolortwo:#9fcc68;
-@font:'Ubuntu Mono', monospace;
-body{
-background-color:#d6d6d6;
-font-family: 'Ubuntu Mono', monospace;
+@buttoncolorone: #6b6b6b;
+@buttoncolortwo: #9fcc68;
+@font: 'Ubuntu Mono', monospace;
+
+body {
+    background-color: #d6d6d6;
+    font-family: 'Ubuntu Mono', monospace;
 }
-#button{
-position:absolute;
-top:50px;
-left:42%;
-width:100px;
-height:40px;
-font-family: 'Ubuntu Mono', monospace;
-border-width:0px;
-background-color:@buttoncolorone;
-color:white;
+
+#button {
+    position: absolute;
+    top: 50px;
+    left: 42%;
+    width: 100px;
+    height: 40px;
+    font-family: 'Ubuntu Mono', monospace;
+    border-width: 0px;
+    background-color: @buttoncolorone;
+    color: white;
 }
-#buttontwo{
-position:absolute;
-top:100px;
-left:42%;
-width:100px;
-height:40px;
-border-width:0px;
-background-color:@buttoncolorone;
+
+#buttontwo {
+    position: absolute;
+    top: 100px;
+    left: 42%;
+    width: 100px;
+    height: 40px;
+    border-width: 0px;
+    background-color: @buttoncolorone;
 }
-#button:hover{
-background-color:@buttoncolortwo;
+
+#button:hover {
+    background-color: @buttoncolortwo;
 }
- #buttontwo:hover{
-background-color:@buttoncolortwo;
+
+#buttontwo:hover {
+    background-color: @buttoncolortwo;
 }
- a {
- text-decoration:none;
- color:white;
- font-family: @font;
- }
-#input{
- position:absolute;
- top:50px;
- left:20px;
- background-color:white;
- width:500px;
- height:700px;
- border-width:0px;
- font-family: @font;
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: @font;
 }
-#output{
- position:absolute;
- top:50px;
- left:720px;
- background-color:white;
- width:620px;
- height:700px;
- border-width:0px;
+
+#input {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    background-color: white;
+    width: 500px;
+    height: 700px;
+    border-width: 0px;
+    font-family: @font;
+}
+
+#output {
+    position: absolute;
+    top: 50px;
+    left: 720px;
+    background-color: white;
+    width: 620px;
+    height: 700px;
+    border-width: 0px;
 }

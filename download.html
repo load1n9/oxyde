@@ -1,6 +1,8 @@
 <html>
 <head>
 <title>download your code</title>
+<link rel="stylesheet/less" type="text/css" href="download.oss" />
+<script src="https://obsydian.netlify.com/dist/obsydian.js" ></script>
 <script>
 
 function download(filename, text) {
@@ -17,12 +19,6 @@ function download(filename, text) {
 }
 
 </script>
-<style>
-form * {
-  display: block;
-  margin: 10px;
-}
-</style>
 </head>
 <body>
 <form onsubmit="download(this['name'].value, this['text'].value)">

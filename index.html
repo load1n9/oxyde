@@ -5,12 +5,10 @@
 <script src = "bundle.js"></script>
 </head>
 <body>
-<form onsubmit="download("oxidefile.html", this['output'].value)">
+<button onclick="download("oxidefile.html", document.getElementById("output").value"></button>
 <textarea id = "input"></textarea>
 <button id = "button" onclick = "compile();">run</button>
 <div id = "output">nothing yet</div>
-<input type="submit" value="Download" class = "submit">
-</form>
 <style>
 
 body{

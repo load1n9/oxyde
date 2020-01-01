@@ -38,6 +38,7 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
 `, "font-family:monospace");
 console.log(`code made by @loading...#9877`)
  }
+
 function download(filename, text) {
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));

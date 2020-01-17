@@ -55,6 +55,7 @@ function compile() {
    output.innerHTML = input;
    if (template.value === "basic") {
        basic();
+       template.value = "";
        }
    setTimeout(compile, 100);
    

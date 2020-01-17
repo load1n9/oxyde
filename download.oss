@@ -1,8 +1,0 @@
-
-form * {
-  display: block;
-  margin: 10px;
-}
-body{
-background-color:#e8e8e8;
-}

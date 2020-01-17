@@ -1,10 +1,3 @@
-
-function compile() {
-
-
-   var input = document.getElementById("input").value;
-   var output = document.getElementById("output");
-   output.innerHTML = input;
    console.log(`%c             $$$$$$$$              $$$$$$
            m$$$$$$$$$          m$"""" "$$m             
            $$$$$$$$$$         $" m$$$$m""$m           
@@ -37,4 +30,11 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
                    """"                                  
 `, "font-family:monospace");
 console.log(`code made by @loading...#9877`)
+
+
+function compile() {
+   var input = document.getElementById("input").value;
+   var output = document.getElementById("output");
+   output.innerHTML = input;
+   setTimeout(compile, 1000);
  }

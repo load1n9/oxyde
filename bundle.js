@@ -51,8 +51,13 @@ console.log(`code made by @loading...#9877`)
 function compile() {
    var input = document.getElementById("input").value;
    var output  = document.getElementById("output");
+   var template = document.getElementById("templates");
    output.innerHTML = input;
+   if (template.value === "basic") {
+       basic();
+       }
    setTimeout(compile, 100);
+   
  }
 
 function basic() {

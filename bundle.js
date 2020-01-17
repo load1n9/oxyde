@@ -50,8 +50,12 @@ console.log(`code made by @loading...#9877`)
 
 function compile() {
    var input = document.getElementById("input").value;
-   var output = document.getElementById("output");
-   output.innerHTML = input;
+   var iframe  = document.getElementById("output");
+   iframe = (iframe.contentWindow)?iframe.contentWindow:(iframe.contentDocument)? iframe.contentDocument.document: 
+   iframe.document.open();
+   iframe.document.write(input);
+   iframe.document.close();
+   return false;
    setTimeout(compile, 100);
  }
 

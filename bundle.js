@@ -36,5 +36,5 @@ function compile() {
    var input = document.getElementById("input").value;
    var output = document.getElementById("output");
    output.innerHTML = input;
-   setTimeout(compile, 1000);
+   setTimeout(compile, 100);
  }

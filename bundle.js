@@ -1,4 +1,20 @@
-   console.log(`%c             $$$$$$$$              $$$$$$
+  var template = [
+     
+  `<html>
+   <body>
+
+	<h1>oxide</h1>
+	<p>some subtitle</p>
+
+  </body>
+  </html>`
+     
+  ];
+
+
+
+
+console.log(`%c             $$$$$$$$              $$$$$$
            m$$$$$$$$$          m$"""" "$$m             
            $$$$$$$$$$         $" m$$$$m""$m           
           mm$$$$$$$$$$$$$$$"" $     "$$mm$$           
@@ -38,3 +54,7 @@ function compile() {
    output.innerHTML = input;
    setTimeout(compile, 100);
  }
+
+function basic() {
+     document.getElementById("input").value = template[0];
+}

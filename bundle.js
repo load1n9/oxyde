@@ -3,9 +3,16 @@
   `<html>
    <body>
 
-	<h1>oxide</h1>
+	<h1>oxyde</h1>
 	<p>some subtitle</p>
 
+  </body>
+  </html>`,
+   `<html>
+    <head>
+    <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+   <body>
   </body>
   </html>`
      
@@ -57,10 +64,17 @@ function compile() {
        basic();
        template.value = "";
        }
+   if (template.value === "bootstrap") {
+       basicbootstrap();
+       template.value = "";
+       }
    setTimeout(compile, 100);
    
  }
 
 function basic() {
      document.getElementById("input").value = template[0];
+}
+function basicbootstrap() {
+     document.getElementById("input").value = template[1];
 }

@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <script src="lib/codemirror.js"></script>
+	<link href = "lib/codemirror.css" rel="stylesheet">
+	<script src= "mode/javascript/javascript.js"></script>
+	<link href = "theme/yonce.css" rel="stylesheet">
+	<script src= "addon/edit/closebrackets.js"></script>
+	<link href = "main.css" rel="stylesheet">
+    <title>oxyde</title>
+</head>
+
+<body>
+
+    <textarea id="input"></textarea>
+	<script>
+	var editor = CodeMirror.fromTextArea(document.getElementById('input'),{
+	    mode: 'javascript',
+		theme: 'yonce',
+		lineNumbers: true,
+		autoCloseTags: true
+	});
+	
+	editor.setSize(1350,700 )
+	
+	</script>
+</body>
+
+</html>

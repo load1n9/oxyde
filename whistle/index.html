@@ -20,6 +20,7 @@
          }
 	</textarea>
 	<script>
+	var code;
 	var editor = CodeMirror.fromTextArea(document.getElementById('input'),{
 	    mode: 'javascript',
 		theme: 'yonce',
@@ -28,6 +29,9 @@
 	});
 	
 	editor.setSize(1350,700 )
+	function run() {
+	   code = editor.getValue()
+	}
 	
 	</script>
 </body>

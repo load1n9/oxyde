@@ -3,7 +3,7 @@
 <head>
     <script src="lib/codemirror.js"></script>
 	<link href = "lib/codemirror.css" rel="stylesheet">
-	<script src= "mode/python/python.js"></script>
+	<script src= "mode/javascript/javascript.js"></script>
 	<link href = "theme/yonce.css" rel="stylesheet">
 	<script src= "addon/edit/closebrackets.js"></script>
 	<link href = "main.css" rel="stylesheet">
@@ -15,13 +15,13 @@
     <textarea id="input">
 	import Print from "Console"
 
-        function HelloWorld
+        function HelloWorld {
              Print("Hello World")
-         ***
+         }
 	</textarea>
 	<script>
 	var editor = CodeMirror.fromTextArea(document.getElementById('input'),{
-	    mode: 'python',
+	    mode: 'javascript',
 		theme: 'yonce',
 		lineNumbers: true,
 		autoCloseBrackets: true

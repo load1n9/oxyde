@@ -1,0 +1,33 @@
+{
+  "name": "create-react-app-monaco-editor",
+  "version": "0.1.1",
+  "private": true,
+  "dependencies": {
+    "@octokit/rest": "18.0.9",
+    "monaco-editor": "^0.18.1",
+    "react": "^16.11.0",
+    "react-app-rewired": "^2.1.4",
+    "react-dom": "^16.11.0",
+    "react-monaco-editor": "^0.32.1",
+    "react-scripts": "^3.2.0",
+    "typescript": "^3.6.4"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "monaco-editor-webpack-plugin": "^1.7.0"
+  }
+}

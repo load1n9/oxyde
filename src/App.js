@@ -1,9 +1,6 @@
 import React from "react";
 import MonacoEditor from "react-monaco-editor";
-import { Octokit } from "@octokit/rest";
-const octokit = new Octokit({
-  auth: "mypersonalaccesstoken123"
-});
+
 class App extends React.Component {
   constructor(props) {
     super(props);

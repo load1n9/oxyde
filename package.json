@@ -9,6 +9,7 @@
     "react-dom": "^16.11.0",
     "react-monaco-editor": "^0.32.1",
     "react-scripts": "^3.2.0",
+    "save-file": "2.3.1",
     "typescript": "^3.6.4"
   },
   "scripts": {

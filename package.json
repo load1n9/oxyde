@@ -3,7 +3,6 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@octokit/rest": "18.0.9",
     "monaco-editor": "^0.18.1",
     "react": "^16.11.0",
     "react-app-rewired": "^2.1.4",

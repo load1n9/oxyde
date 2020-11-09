@@ -31,7 +31,7 @@ class App extends React.Component {
             language: this.state.language === "javascript" ? "python" : "javascript"
         });
         this.setState({
-            code: this.state.language === "javascript" ? `
+            code: this.state.language === "python" ? `
                  function test() {
                     console.log("hi")
                  }

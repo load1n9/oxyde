@@ -1,5 +1,6 @@
 import React from "react";
 import MonacoEditor from "react-monaco-editor";
+import { saveSync } from "save-file";
 
 class App extends React.Component {
   constructor(props) {
@@ -45,6 +46,9 @@ printf("hello world")
             `
     });
   };
+  saveFile = () => {
+    saveSync(this.state.code, "example.txt");
+  };
 
   render() {
     const { code, theme, language } = this.state;
@@ -64,6 +68,9 @@ printf("hello world")
           </span>
           <span className="topElement" onClick={this.setLanguage}>
             {language === "javascript" ? "📜" : "🐍"}
+          </span>
+          <span className="topElement" onClick={this.saveFile}>
+            💾
           </span>
         </div>
         <MonacoEditor

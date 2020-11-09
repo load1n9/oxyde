@@ -47,8 +47,15 @@ printf("hello world")
     });
   };
   saveFile = () => {
+    
     saveSync(this.state.code, "example.txt");
   };
+  setGitUrl = () => {
+    let urlPrompt = prompt("url: ","ophyon/oxyde/master/src/App.js")
+    fetch("https://raw.githubusercontent.com/"+urlPrompt)
+      .then((response) => response.text())
+      .then((data) => this.setState({ code: data }));
+  }
 
   render() {
     const { code, theme, language } = this.state;
@@ -61,13 +68,16 @@ printf("hello world")
       cursorBlinking: "blink"
     };
     return (
-      <div class={theme === "vs-light" ? "light" : "dark"}>
+      <div className={theme === "vs-light" ? "light" : "dark"}>
         <div id="buttons">
           <span className="topElement" onClick={this.setTheme}>
             {theme === "vs-light" ? "🌞" : "🌛"}
           </span>
           <span className="topElement" onClick={this.setLanguage}>
             {language === "javascript" ? "📜" : "🐍"}
+          </span>
+          <span className="topElement" onClick={this.setGitUrl}>
+          🐈
           </span>
           <span className="topElement" onClick={this.saveFile}>
             💾

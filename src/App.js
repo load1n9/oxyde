@@ -60,10 +60,10 @@ printf("hello world")
       <div class={theme === "vs-light" ? "light" : "dark"}>
         <div id="buttons">
           <span className="topElement" onClick={this.setTheme}>
-            {theme === "vs-light" ? "🌛" : "🌞"}
+            {theme === "vs-light" ? "🌞" : "🌛"}
           </span>
           <span className="topElement" onClick={this.setLanguage}>
-            {language === "javascript" ? "🐍" : "📜"}
+            {language === "javascript" ? "📜" : "🐍"}
           </span>
         </div>
         <MonacoEditor

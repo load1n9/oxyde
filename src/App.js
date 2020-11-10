@@ -68,8 +68,9 @@ class App extends React.Component {
                         {theme === "vs-light" ? "🌞" : "🌛"}
                     </span>
                     <span className="topElement" onClick={this.setLanguage}>
-                        {LanguageData[language].icon}<span class="hiddenlang">{LanguageData[language].name}</span>
+                        {LanguageData[language].icon}
                     </span>
+                    <span class=" topElement hiddenlang">{LanguageData[language].name}</span>
                     <span className="topElement" onClick={this.setGitUrl}>
                         🐈
           </span>

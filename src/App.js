@@ -30,7 +30,7 @@ class App extends React.Component {
     setLanguage = () => {
         console.log("current: "+this.state.language)
         console.log("length: "+LanguageData.length)
-        if (this.state.language >= LanguageData.length) {
+        if (this.state.language === LanguageData.length-1) {
             this.setState({
                 language: 0
             });

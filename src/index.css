@@ -20,6 +20,7 @@ body {
 }
 .topElement:hover .hiddenlang{
     display: block;
+    font-size:50%;
 }
 
 

@@ -5,6 +5,8 @@ body {
 
 .topElement {
   user-select: none;
+  padding: 3%;
+  font-size: 150%;
 }
 .topElement:hover {
   filter: brightness(120%);

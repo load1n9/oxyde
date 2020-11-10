@@ -19,8 +19,8 @@ body {
   font-size: 160%;
 }
 .topElement:hover ~ .hiddenlang{
-    display: block;
-    font-size:50%;
+    display: inline;
+    font-size:80%;
 }
 
 

@@ -16,7 +16,7 @@ body {
   font-size: 160%;
 }
 .hiddenlang {
-    display: hidden;
+    display: none;
 }
 .hiddenlang:hover {
     display: block;

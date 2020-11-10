@@ -7,7 +7,7 @@ body {
   user-select: none;
   padding: 3%;
   font-size: 150%;
-  transition: font-size 1s filter 1s;
+  transition: font-size 2s filter 2s;
 }
 .topElement:hover {
   filter: brightness(120%);

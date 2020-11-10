@@ -13,6 +13,7 @@ body {
 }
 .hiddenlang {
     display: none;
+    transition: display 2s;
 }
 .topElement:hover {
   filter: brightness(120%);
@@ -20,7 +21,7 @@ body {
 }
 .topElement:hover ~ .hiddenlang{
     display: inline;
-    font-size:80%;
+    font-size:100%;
 }
 
 

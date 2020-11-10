@@ -39,6 +39,9 @@ class App extends React.Component {
                 language: this.state.language+1
             });
         }
+        this.setState({
+            code: LanguageData[this.state.language].code
+        })
     }
     saveFile = () => {
 

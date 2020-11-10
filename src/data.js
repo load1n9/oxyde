@@ -1,10 +1,18 @@
 export const LanguageData = [
     { 
         name: "javascript",
-        icon: "📜" 
+        icon: "📜",
+        code: `
+function printf(text) {
+    console.log(text)
+} ` 
     },
     {
         name: "python",
-        icon: "🐍"
+        icon: "🐍",
+        code: `
+def printf(text):
+    print(text)
+        `
     }
 ]

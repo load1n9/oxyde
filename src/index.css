@@ -13,7 +13,7 @@ body {
 }
 .hiddenlang {
     display: none;
-    transition: display 2s;
+    transition: display 5s;
 }
 .topElement:hover {
   filter: brightness(120%);

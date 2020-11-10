@@ -28,13 +28,14 @@ class App extends React.Component {
         });
     };
     setLanguage = () => {
+        console.log(this.state.language)
         if (this.state.language === LanguageData.length) {
             this.setState({
                 language: 0
             });
         } else {
             this.setState({
-                language: this.state.language++
+                language: this.state.language+1
             });
         }
     }

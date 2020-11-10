@@ -14,11 +14,14 @@ body {
 .hiddenlang {
     display: none;
 }
-.topElement:hover .hiddenlang{
-  display: block;
+.topElement:hover {
   filter: brightness(120%);
   font-size: 160%;
 }
+.topElement:hover .hiddenlang{
+    display: block;
+}
+
 
 
 .light {

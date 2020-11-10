@@ -6,6 +6,9 @@ body {
 .topElement {
   user-select: none;
 }
+.topElement:hover {
+  filter: brightness(120%);
+}
 
 .light {
   position: absolute;

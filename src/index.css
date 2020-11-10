@@ -6,6 +6,8 @@ body {
 .topElement {
   user-select: none;
   padding: 3%;
+  color:white;
+  font-family: 'Ubuntu Mono', monospace;
   font-size: 150%;
   transition: font-size 2s filter 2s;
 }

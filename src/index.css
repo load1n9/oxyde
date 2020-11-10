@@ -6,7 +6,7 @@ body {
 .topElement {
   user-select: none;
   padding: 3%;
-  color:white;
+  color:rgb(168, 168, 168);
   font-family: 'Ubuntu Mono', monospace;
   font-size: 150%;
   transition: font-size 2s filter 2s;
@@ -14,6 +14,12 @@ body {
 .topElement:hover {
   filter: brightness(120%);
   font-size: 160%;
+}
+.hiddenlang {
+    display: hidden;
+}
+.hiddenlang:hover {
+    display: block;
 }
 
 .light {

@@ -14,5 +14,14 @@ function printf(text) {
 def printf(text):
     print(text)
         `
+    },
+     {
+        name: "rust",
+        icon: "☢️",
+        code: `
+fn main() {
+    println!("Hello World!");
+}
+        `
     }
 ]

@@ -50,6 +50,12 @@ class App extends React.Component {
             .then((response) => response.text())
             .then((data) => this.setState({ code: data }));
     }
+    loadFromUrl = () => {
+        const params = new URLSearchParams(window.location.search)
+        if (params.has('code')) {
+            this.setState({ code: atob(params.get('code')) })
+        }
+    }
 
     render() {
         const { code, theme, language } = this.state;
@@ -73,10 +79,13 @@ class App extends React.Component {
                     <span class=" topElement hiddenlang">{LanguageData[language].name}</span>
                     <span className="topElement" onClick={this.setGitUrl}>
                         🐈
-          </span>
+                    </span>
+                    <span className="topElement" onClick={this.loadFromUrl}>
+                        🔼
+                    </span>
                     <span className="topElement" onClick={this.saveFile}>
                         💾
-          </span>
+                    </span>
                 </div>
                 <MonacoEditor
                     height="800"

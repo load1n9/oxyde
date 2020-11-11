@@ -54,11 +54,6 @@ class App extends React.Component {
             .then((response) => response.text())
             .then((data) => this.setState({ code: data }));
     }
-    UploadFromUrl = () => {
-       const newParams = new URLSearchParams(window.location.search)
-       newParams.set("code",btoa(this.state.code))
-       window.history.replaceState({}, '', `${location.pathname}?${newParams}`);
-    }
 
     render() {
         const { code, theme, language } = this.state;
@@ -82,9 +77,6 @@ class App extends React.Component {
                     <span class=" topElement hiddenlang">{LanguageData[language].name}</span>
                     <span className="topElement" onClick={this.setGitUrl}>
                         🐈
-                    </span>
-                    <span className="topElement" onClick={this.UploadFromUrl}>
-                        🔼
                     </span>
                     <span className="topElement" onClick={this.saveFile}>
                         💾

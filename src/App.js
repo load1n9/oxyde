@@ -54,9 +54,6 @@ class App extends React.Component {
             .then((response) => response.text())
             .then((data) => this.setState({ code: data }));
     }
-    UploadParams = () => {
-        prompt("copy url to share: ",`https://oxyde-ide.vercel.app/?code=${btoa(this.state.code)}`)
-    }
 
     render() {
         const { code, theme, language } = this.state;
@@ -80,9 +77,6 @@ class App extends React.Component {
                     <span className=" topElement hiddenlang">{LanguageData[language].name}</span>
                     <span className="topElement" onClick={this.setGitUrl}>
                         🐈
-                    </span>
-                    <span className="topElement" onClick={this.UploadParams}>
-                        🔼
                     </span>
                     <span className="topElement" onClick={this.saveFile}>
                         💾

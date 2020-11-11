@@ -55,7 +55,7 @@ class App extends React.Component {
             .then((data) => this.setState({ code: data }));
     }
     UploadParams = () => {
-        alert(`https://oxyde-ide.vercel.app/?code=${btoa(this.state.code)}`)
+        prompt("copy url to share: "`https://oxyde-ide.vercel.app/?code=${btoa(this.state.code)}`)
     }
 
     render() {

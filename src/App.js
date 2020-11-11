@@ -55,9 +55,7 @@ class App extends React.Component {
             .then((data) => this.setState({ code: data }));
     }
     UploadParams = () => {
-        this.props.history.push({
-            search: `?code=${btoa(this.state.code)}`
-        })
+        alert(`https://oxyde-ide.vercel.app/?code=${btoa(this.state.code)}`)
     }
 
     render() {
@@ -83,7 +81,9 @@ class App extends React.Component {
                     <span className="topElement" onClick={this.setGitUrl}>
                         🐈
                     </span>
-                    <span className="topElement" onClick={this.UploadParams}></span>
+                    <span className="topElement" onClick={this.UploadParams}>
+                        🔼
+                    </span>
                     <span className="topElement" onClick={this.saveFile}>
                         💾
                     </span>

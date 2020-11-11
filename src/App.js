@@ -55,7 +55,7 @@ class App extends React.Component {
             .then((data) => this.setState({ code: data }));
     }
     UploadParams = () => {
-        history.push({
+        this.props.history.push({
             search: `?code=${btoa(this.state.code)}`
         })
     }

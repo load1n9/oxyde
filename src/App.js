@@ -54,6 +54,11 @@ class App extends React.Component {
             .then((response) => response.text())
             .then((data) => this.setState({ code: data }));
     }
+    UploadParams = () => {
+        history.push({
+            search: `?code=${btoa(this.state.code)}`
+        })
+    }
 
     render() {
         const { code, theme, language } = this.state;
@@ -74,10 +79,11 @@ class App extends React.Component {
                     <span className="topElement" onClick={this.setLanguage}>
                         {LanguageData[language].icon}
                     </span>
-                    <span class=" topElement hiddenlang">{LanguageData[language].name}</span>
+                    <span className=" topElement hiddenlang">{LanguageData[language].name}</span>
                     <span className="topElement" onClick={this.setGitUrl}>
                         🐈
                     </span>
+                    <span className="topElement" onClick={this.UploadParams}></span>
                     <span className="topElement" onClick={this.saveFile}>
                         💾
                     </span>

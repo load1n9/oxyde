@@ -16,6 +16,10 @@ class App extends React.Component {
         };
     }
     editorDidMount = (editor, monaco) => {
+        const params = new URLSearchParams(window.location.search)
+        if (params.has('code')) {
+            this.setState({ code: atob(params.get('code')) })
+        }
         console.log("editorDidMount", editor);
         editor.focus();
     };
@@ -50,11 +54,10 @@ class App extends React.Component {
             .then((response) => response.text())
             .then((data) => this.setState({ code: data }));
     }
-    loadFromUrl = () => {
-        const params = new URLSearchParams(window.location.search)
-        if (params.has('code')) {
-            this.setState({ code: atob(params.get('code')) })
-        }
+    UploadFromUrl = () => {
+       const newParams = new URLSearchParams(window.location.search)
+       newParams.set("code",btoa(this.state.code))
+       window.history.replaceState({}, '', `${location.pathname}?${newParams}`);
     }
 
     render() {
@@ -80,7 +83,7 @@ class App extends React.Component {
                     <span className="topElement" onClick={this.setGitUrl}>
                         🐈
                     </span>
-                    <span className="topElement" onClick={this.loadFromUrl}>
+                    <span className="topElement" onClick={this.UploadFromUrl}>
                         🔼
                     </span>
                     <span className="topElement" onClick={this.saveFile}>

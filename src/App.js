@@ -1,5 +1,6 @@
 import React from "react";
 import MonacoEditor from "react-monaco-editor";
+import { ReactComponent as SomeIcon } from "./logo.svg";
 import { saveSync } from "save-file";
 import { WhistleLanguageDef } from "./languages/WhistleConfig"
 import { LanguageData } from "./data"

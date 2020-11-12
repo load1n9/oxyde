@@ -1,6 +1,7 @@
 import React from "react";
 import MonacoEditor from "react-monaco-editor";
 import { saveSync } from "save-file";
+import {WhistleLanguageDef,WhistleConfiguration} from "./WhistleConfig.js"
 import { LanguageData } from "./data"
 class App extends React.Component {
     constructor(props) {
@@ -16,6 +17,11 @@ class App extends React.Component {
         };
     }
     editorDidMount = (editor, monaco) => {
+        if (!monaco.languages.getLanguages().some(({ id }) => id === 'whistle')) {
+            monaco.languages.register({ id: 'whistle' })
+            monaco.languages.setMonarchTokensProvider('whistle', WhistleLanguageDef) 
+            monaco.languages.setLanguageConfiguration('whistle', WhistleConfiguration)
+        }
         const params = new URLSearchParams(window.location.search)
         if (params.has('code')) {
             this.setState({ code: atob(params.get('code')) })

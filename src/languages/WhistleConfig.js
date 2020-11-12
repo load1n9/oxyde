@@ -42,6 +42,7 @@ export const WhistleLanguageDef = {
 
     tokenizer: {
         root: [
+            [/#\([a-zA-Z]\w*\)/, 'annotation'],
             [/[a-z_$][\w$]*/, {
                 cases: {
                     '@typeKeywords': 'keyword',
@@ -59,7 +60,6 @@ export const WhistleLanguageDef = {
                     '@default': ''
                 }
             }],
-            [/@\s*[a-zA-Z_\$][\w\$]*/, { token: 'annotation', log: 'annotation token: $0' }],
 
             [/\d*\.\d+([eE][\-+]?\d+)?/, 'number.float'],
             [/0[xX][0-9a-fA-F]+/, 'number.hex'],

@@ -1,7 +1,6 @@
 
 export const WhistleLanguageDef = {
-    defaultToken: "",
-    number: /\d+(\.\d+)?/,
+
     keywords: [
         "import",
         "as",
@@ -22,39 +21,80 @@ export const WhistleLanguageDef = {
         "match",
         "type",
         "struct",
-        "trait",
+        "trait"
     ],
+
+    typeKeywords: [
+        "none", "string", "bool", "i8", "i16", "i32", "i64", "u8", "u16", "u32", "u64", "f32", "f64"
+    ],
+
+    operators: [
+        "&&=", "||=", "&&", "||", "!", "+=",
+        "-=", "*=", "/=", "%=", "**=", "+", "-",
+        "*", "/", "%", "**", "<<=", ">>=", "<<",
+        ">>", "&=", "|=", "^=", "&", "|", "^",
+        "~", "==", "!=", "<=", ">=", "<", ">", "="
+    ],
+
+    symbols: /[=><!~?:&|+\-*\/\^%]+/,
+
+    escapes: /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
+
     tokenizer: {
         root: [
-            { include: "@whitespace" },
-            { include: "@numbers" },
-            { include: "@strings" },
-            { include: "@tags" },
-            [/^@\w+/, { cases: { "@keywords": "keyword" } }],
+            [/[a-z_$][\w$]*/, {
+                cases: {
+                    '@typeKeywords': 'keyword',
+                    '@keywords': 'keyword',
+                    '@default': 'identifier'
+                }
+            }],
+            [/[A-Z][\w\$]*/, 'type.identifier'],
+            { include: '@whitespace' },
+            [/[{}()\[\]]/, '@brackets'],
+            [/[<>](?!@symbols)/, '@brackets'],
+            [/@symbols/, {
+                cases: {
+                    '@operators': 'operator',
+                    '@default': ''
+                }
+            }],
+            [/@\s*[a-zA-Z_\$][\w\$]*/, { token: 'annotation', log: 'annotation token: $0' }],
+
+            [/\d*\.\d+([eE][\-+]?\d+)?/, 'number.float'],
+            [/0[xX][0-9a-fA-F]+/, 'number.hex'],
+            [/\d+/, 'number'],
+
+            [/[;,.]/, 'delimiter'],
+
+            [/"([^"\\]|\\.)*$/, 'string.invalid'],
+            [/"/, { token: 'string.quote', bracket: '@open', next: '@string' }],
+
+            [/'[^\\']'/, 'string'],
+            [/(')(@escapes)(')/, ['string', 'string.escape', 'string']],
+            [/'/, 'string.invalid']
         ],
+
+        comment: [
+            [/[^\/*]+/, 'comment'],
+            [/\/\*/, 'comment', '@push'],
+            ["\\*/", 'comment', '@pop'],
+            [/[\/*]/, 'comment']
+        ],
+
+        string: [
+            [/[^\\"]+/, 'string'],
+            [/@escapes/, 'string.escape'],
+            [/\\./, 'string.escape.invalid'],
+            [/"/, { token: 'string.quote', bracket: '@close', next: '@pop' }]
+        ],
+
         whitespace: [
-            [/^\s*#([ =|].*)?$/, "comment"],
-            [/\s+/, "white"],
-        ],
-        numbers: [
-            [/@number/, "number"],
-        ],
-        strings: [
-            [/[=|][ @number]*$/, "string.escape"],
-        ],
-        tags: [
-            [/^%[a-zA-Z]\w*/, "tag"],
-            [/#[a-zA-Z]\w*/, "tag"],
+            [/[ \t\r\n]+/, 'white'],
+            [/\/\*/, 'comment', '@comment'],
+            [/\/\/.*$/, 'comment'],
         ],
     },
-}
+};
 
 
-export const WhistleConfiguration = {
-    comments: {
-        lineComment: "//",
-    },
-    brackets: [
-        ["{", "}"], ["[", "]"], ["(", ")"],
-    ],
-}

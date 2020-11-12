@@ -21,6 +21,9 @@ class App extends React.Component {
     }
     editorDidMount = (editor, monaco) => {
         const params = new URLSearchParams(window.location.search)
+        if (params.has('language')) {
+            this.setState({ language: int(params.get('language')) })
+        }
         if (params.has('code')) {
             this.setState({ code: atob(params.get('code')) })
         }
@@ -39,12 +42,12 @@ class App extends React.Component {
         if (this.state.language === LanguageData.length - 1) {
             this.setState({
                 language: 0,
-                code: (this.state.code===LanguageData[this.state.language].code)?LanguageData[0].code : this.state.code
+                code: LanguageData[0].code
             });
         } else {
             this.setState({
                 language: this.state.language + 1,
-                code: (this.state.code===LanguageData[this.state.language].code)?LanguageData[this.state.language + 1].code : this.state.code
+                code: LanguageData[this.state.language + 1].code
             });
         }
     }

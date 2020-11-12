@@ -37,10 +37,17 @@ class App extends React.Component {
         this.setState({ theme: this.state.theme === "vs-light" ? "vs-dark" : "vs-light" });
     };
     setLanguage = () => {
+        LanguageData[this.state.language].code = this.state.code
         if (this.state.language === LanguageData.length - 1) {
-            this.setState({ language: 0 });
+            this.setState({
+                language: 0,
+                code: LanguageData[0].code
+            });
         } else {
-            this.setState({ language: this.state.language + 1, });
+            this.setState({
+                language: this.state.language + 1,
+                code: LanguageData[this.state.language + 1].code
+            });
         }
     }
     saveFile = () => {

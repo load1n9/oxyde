@@ -45,13 +45,6 @@ printf("Hello, World!")
         `
     },
     {
-        name: "myCustomLanguage",
-        icon: "📜",
-        code: `
-[Sun Mar 7 16:02:00 2004] [notice] Apache/1.3.29 (Unix) configured -- resuming normal operations
- `
-    },
-    {
         name: "java",
         icon: "☕",
         code: `

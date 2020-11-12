@@ -13,37 +13,20 @@ class App extends React.Component {
         };
     }
     editorWillMount = (monaco) => {
-        monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
-            validate: true,
-            schemas: [
-                {
-                    uri: "http://myserver/foo-schema.json",
-                    schema: {
-                        type: "object",
-                        properties: {
-                            p1: {
-                                enum: ["v1", "v2"],
-                            },
-                            p2: {
-                                $ref: "http://myserver/bar-schema.json",
-                            },
-                        },
-                    },
-                },
-                {
-                    uri: "http://myserver/bar-schema.json",
-                    schema: {
-                        type: "object",
-                        properties: {
-                            q1: {
-                                enum: ["x1", "x2"],
-                            },
-                        },
-                    },
-                },
-            ],
+        monaco.languages.register({
+            id: 'myCustomLanguage'
         });
-    };
+        monaco.languages.setMonarchTokensProvider('myCustomLanguage', {
+            tokenizer: {
+                root: [
+                    [/\[error.*/, 'comment'],
+                    [/\[notice.*/, 'operator'],
+                    [/\[info.*/, 'keyword'],
+                    [/\[[a-zA-Z 0-9:]+\]/, 'number']
+                ]
+            }
+        });
+    }
     editorDidMount = (editor, monaco) => {
         const params = new URLSearchParams(window.location.search)
         if (params.has('code')) {
@@ -117,8 +100,8 @@ class App extends React.Component {
                     value={code}
                     options={options}
                     onChange={this.onChange}
-                    editorDidMount={this.editorDidMount}
                     editorWillMount={this.editorWillMount}
+                    editorDidMount={this.editorDidMount}
                     theme={theme}
                 />
             </div>

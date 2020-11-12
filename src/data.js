@@ -45,12 +45,10 @@ printf("Hello, World!")
         `
     },
     {
-        name: "json",
+        name: "myCustomLanguage",
         icon: "📜",
         code: `
-{
-         "$schema": "http://myserver/foo-schema.json"
-}
+[Sun Mar 7 16:02:00 2004] [notice] Apache/1.3.29 (Unix) configured -- resuming normal operations
  `
     },
     {

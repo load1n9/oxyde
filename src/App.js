@@ -39,12 +39,12 @@ class App extends React.Component {
         if (this.state.language === LanguageData.length - 1) {
             this.setState({
                 language: 0,
-                code: LanguageData[0].code
+                code: (this.state.code===LanguageData[this.state.language].code)?LanguageData[0].code : this.state.code
             });
         } else {
             this.setState({
                 language: this.state.language + 1,
-                code: LanguageData[this.state.language + 1].code
+                code: (this.state.code===LanguageData[this.state.language].code)?LanguageData[this.state.language + 1].code : this.state.code
             });
         }
     }

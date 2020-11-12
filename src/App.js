@@ -22,7 +22,7 @@ class App extends React.Component {
     editorDidMount = (editor, monaco) => {
         const params = new URLSearchParams(window.location.search)
         if (params.has('language')) {
-            this.setState({ language: int(params.get('language')) })
+            this.setState({ language: parseInt(params.get('language')) })
         }
         if (params.has('code')) {
             this.setState({ code: atob(params.get('code')) })

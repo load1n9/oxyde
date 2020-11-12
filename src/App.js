@@ -2,7 +2,7 @@ import React from "react";
 import MonacoEditor from "react-monaco-editor";
 import { saveSync } from "save-file";
 import { WhistleLanguageDef } from "./languages/WhistleConfig"
-import { LanguageData } from "./data"
+import { LanguageData } from "./scripts/data"
 
 class App extends React.Component {
     constructor(props) {

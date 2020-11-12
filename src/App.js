@@ -32,7 +32,7 @@ class App extends React.Component {
     };
     onChange = (newValue, e) => {
         console.log("onChange", newValue, e);
-        LanguageData[this.state.language].code = newValue
+        LanguageData[this.state.language].code = this.state.code
     };
     setTheme = () => {
         this.setState({ theme: this.state.theme === "vs-light" ? "vs-dark" : "vs-light" });

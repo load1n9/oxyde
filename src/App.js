@@ -10,12 +10,12 @@ class App extends React.Component {
     this.state = {
       code: "",
       theme: "vs-dark",
-      language: 0
+      language: 0,
     };
   }
   editorWillMount = (monaco) => {
     monaco.languages.register({
-      id: "whistle"
+      id: "whistle",
     });
     monaco.languages.setMonarchTokensProvider("whistle", WhistleLanguageDef);
   };
@@ -36,19 +36,19 @@ class App extends React.Component {
   setTheme = () => {
     this.setState({
       theme: this.state.theme === "vs-light" ? "vs-dark" : "vs-light",
-      code: sessionStorage.getItem("code")
+      code: sessionStorage.getItem("code"),
     });
   };
   setLanguage = () => {
     if (this.state.language === LanguageData.length - 1) {
       this.setState({
         language: 0,
-        code: sessionStorage.getItem("code")
+        code: sessionStorage.getItem("code"),
       });
     } else {
       this.setState({
         language: this.state.language + 1,
-        code: sessionStorage.getItem("code")
+        code: sessionStorage.getItem("code"),
       });
     }
   };
@@ -62,7 +62,10 @@ class App extends React.Component {
     let urlPrompt = prompt("url: ", "ophyon/oxyde/master/src/App.js");
     fetch("https://raw.githubusercontent.com/" + urlPrompt)
       .then((response) => response.text())
-      .then((data) => this.setState({ code: data }));
+      .then((data) => {
+        this.setState({ code: data });
+        sessionStorage.setItem("code", data);
+      });
   };
 
   render() {
@@ -73,7 +76,7 @@ class App extends React.Component {
       readOnly: false,
       cursorStyle: "line",
       automaticLayout: true,
-      cursorBlinking: "blink"
+      cursorBlinking: "blink",
     };
     return (
       <div className={theme === "vs-light" ? "light" : "dark"}>
@@ -110,3 +113,4 @@ class App extends React.Component {
 }
 
 export default App;
+

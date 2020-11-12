@@ -8,7 +8,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            code: LanguageData[0].code,
+            code: "",
             theme: "vs-dark",
             language: 0
         };
@@ -42,18 +42,16 @@ class App extends React.Component {
         if (this.state.language === LanguageData.length - 1) {
             this.setState({
                 language: 0,
-                code: LanguageData[0].code
             });
         } else {
             this.setState({
                 language: this.state.language + 1,
-                code: LanguageData[this.state.language + 1].code
             });
         }
     }
     saveFile = () => {
 
-        saveSync(this.state.code, "example.txt");
+        saveSync(this.state.code, `example.${LanguageData[this.state.language].extension}`);
     };
     setGitUrl = () => {
         let urlPrompt = prompt("url: ", "ophyon/oxyde/master/src/App.js")

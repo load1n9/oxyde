@@ -93,7 +93,7 @@ class App extends React.Component {
                 </div>
                 <MonacoEditor
                     height="800"
-                    language={LanguageData[language].name}
+                    language={/*LanguageData[language].name*/"whistle"}
                     value={code}
                     options={options}
                     onChange={this.onChange}

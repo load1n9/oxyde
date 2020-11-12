@@ -1,9 +1,9 @@
 import React from "react";
 import MonacoEditor from "react-monaco-editor";
-import { ReactComponent as SomeIcon } from "./favorite.svg";
 import { saveSync } from "save-file";
 import { WhistleLanguageDef } from "./languages/WhistleConfig"
 import { LanguageData } from "./data"
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -76,7 +76,7 @@ class App extends React.Component {
                         {theme === "vs-light" ? "🌞" : "🌛"}
                     </span>
                     <span className="topElement" onClick={this.setLanguage}>
-                        {eval(LanguageData[language].icon)}
+                        {LanguageData[language].icon}
                     </span>
                     <span className=" topElement hiddenlang">{LanguageData[language].name}</span>
                     <span className="topElement" onClick={this.setGitUrl}>

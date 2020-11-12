@@ -1,8 +1,7 @@
-
 export const LanguageData = [
     {
         name: "javascript",
-        icon: "<SomeIcon />",
+        icon: "📜",
         code: `
 function printf(text) {
     console.log(text)
@@ -10,7 +9,7 @@ function printf(text) {
     },
     {
         name: "python",
-        icon: "<SomeIcon />",
+        icon: "🐍",
         code: `
 def printf(text):
     print(text)
@@ -18,7 +17,7 @@ def printf(text):
     },
     {
         name: "rust",
-        icon: "<SomeIcon />",
+        icon: "☢️",
         code: `
 fn main() {
     println!("Hello World!");
@@ -27,7 +26,7 @@ fn main() {
     },
     {
         name: "typescript",
-        icon: "<SomeIcon />",
+        icon: "📜",
         code: `
 function printf(text:string) {
     console.log(text)
@@ -36,7 +35,7 @@ function printf(text:string) {
     },
     {
         name: "whistle",
-        icon: "<SomeIcon />",
+        icon: "📜",
         code: `
 fun printf(text: string): none {
   #(js) console.log(text);
@@ -47,7 +46,7 @@ printf("Hello, World!")
     },
     {
         name: "java",
-        icon: "<SomeIcon />",
+        icon: "☕",
         code: `
 public class Main {
 
@@ -60,7 +59,7 @@ public class Main {
     },
     {
         name: "php",
-        icon: "<SomeIcon />",
+        icon: "🚽",
         code: `
 echo "Hello, World!";
         `

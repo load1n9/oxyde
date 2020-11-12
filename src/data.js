@@ -45,6 +45,15 @@ printf("Hello, World!")
         `
     },
     {
+        name: "json",
+        icon: "📜",
+        code: `
+{
+         "$schema": "http://myserver/foo-schema.json"
+}
+ `
+    },
+    {
         name: "java",
         icon: "☕",
         code: `

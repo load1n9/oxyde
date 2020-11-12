@@ -12,7 +12,38 @@ class App extends React.Component {
             language: 0
         };
     }
-
+    editorWillMount = (monaco) => {
+        monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+            validate: true,
+            schemas: [
+                {
+                    uri: "http://myserver/foo-schema.json",
+                    schema: {
+                        type: "object",
+                        properties: {
+                            p1: {
+                                enum: ["v1", "v2"],
+                            },
+                            p2: {
+                                $ref: "http://myserver/bar-schema.json",
+                            },
+                        },
+                    },
+                },
+                {
+                    uri: "http://myserver/bar-schema.json",
+                    schema: {
+                        type: "object",
+                        properties: {
+                            q1: {
+                                enum: ["x1", "x2"],
+                            },
+                        },
+                    },
+                },
+            ],
+        });
+    };
     editorDidMount = (editor, monaco) => {
         const params = new URLSearchParams(window.location.search)
         if (params.has('code')) {
@@ -87,6 +118,7 @@ class App extends React.Component {
                     options={options}
                     onChange={this.onChange}
                     editorDidMount={this.editorDidMount}
+                    editorWillMount={this.editorWillMount}
                     theme={theme}
                 />
             </div>

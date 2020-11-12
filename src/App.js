@@ -1,4 +1,4 @@
-iimport React from "react";
+import React from "react";
 import MonacoEditor from "react-monaco-editor";
 import { saveSync } from "save-file";
 import { WhistleLanguageDef } from "./languages/WhistleConfig";

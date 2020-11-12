@@ -16,7 +16,7 @@ class App extends React.Component {
         monaco.languages.register({
             id: 'whistle'
         });
-        monaco.languages.setMonarchTokensProvider('whistle', WhistleLanguageDef.tokenizer);
+        monaco.languages.setMonarchTokensProvider('whistle', WhistleLanguageDef);
     }
     editorDidMount = (editor, monaco) => {
         const params = new URLSearchParams(window.location.search)

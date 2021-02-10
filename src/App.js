@@ -96,7 +96,7 @@ class App extends React.Component {
 
     const file = files[fileName];
     let hmm = []
-    for (let key in obj) {
+    for (let key in files) {
             hmm.push(<button disabled={fileName === files[key].name} onClick={() => setFileName(files[key])}>
                  files[key]
             </button>)

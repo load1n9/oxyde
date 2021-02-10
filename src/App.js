@@ -64,9 +64,7 @@ class App extends React.Component {
     );
   };
   generateSnapshot = () => {
-    let imagedata = await fetchCarbon(sessionStorage.getItem("code"));
-    const newWindow = window.open(imagedata, "_blank", "noopener,noreferrer");
-    if (newWindow) newWindow.opener = null;
+    fetchCarbon(sessionStorage.getItem("code"));
   };
   setGitUrl = () => {
     let urlPrompt = prompt("url: ", "ophyon/oxyde/master/src/App.js");

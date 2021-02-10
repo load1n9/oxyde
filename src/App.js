@@ -3,7 +3,7 @@ import MonacoEditor from "react-monaco-editor";
 import { saveSync } from "save-file";
 import { WhistleLanguageDef } from "./languages/WhistleConfig";
 import { LanguageData } from "./scripts/data";
-import { fetchCarbon } from "./scripts/carbon";
+import { convertBlobToBase64 } from "./scripts/carbon";
 
 class App extends React.Component {
   constructor(props) {
@@ -63,8 +63,20 @@ class App extends React.Component {
       `example.${LanguageData[this.state.language].extension}`
     );
   };
-  generateSnapshot = () => {
-    fetchCarbon(sessionStorage.getItem("code"));
+  generateSnapshot = async () => {
+    try {
+           let codeoutput = encodeURIComponent(sessionStorage.getItem("code"))
+           const fetchResult = await fetch(`https://carbonnowsh.herokuapp.com/?code=${codeoutput}&theme=dracula`);
+           let output = await convertBlobToBase64(await fetchResult.blob());
+           await saveSync(
+               output,
+               `example.png`
+           )
+
+
+       } catch (error) {
+           console.error(error);
+       }
   };
   setGitUrl = () => {
     let urlPrompt = prompt("url: ", "ophyon/oxyde/master/src/App.js");

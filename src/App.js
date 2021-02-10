@@ -95,6 +95,12 @@ class App extends React.Component {
     const { code, theme, language, fileName, setFileName} = this.state;
 
     const file = files[fileName];
+    let hmm = []
+    for (let key in obj) {
+            hmm.push(<button disabled={fileName === files[key].name} onClick={() => setFileName(files[key])}>
+                 files[key]
+            </button>)
+    }
 
     const options = {
       selectOnLineNumbers: true,
@@ -127,11 +133,7 @@ class App extends React.Component {
           <span className="topElement" onClick={this.generateSnapshot}>
             📷
           </span>
-          {files.map((e) => (
-             <button disabled={fileName === e.name} onClick={() => setFileName(e)}>
-                 e
-             </button>
-           ))}
+          {hmm}
         </div>
         <MonacoEditor
           height="800"

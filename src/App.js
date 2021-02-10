@@ -64,7 +64,7 @@ class App extends React.Component {
     );
   };
   generateSnapshot = () => {
-    let imagedata = fetchCarbon(sessionStorage.getItem("code"));
+    let imagedata = await fetchCarbon(sessionStorage.getItem("code"));
     const newWindow = window.open(imagedata, "_blank", "noopener,noreferrer");
     if (newWindow) newWindow.opener = null;
   };

@@ -3,6 +3,7 @@ import MonacoEditor from "react-monaco-editor";
 import { saveSync } from "save-file";
 import { WhistleLanguageDef } from "./languages/WhistleConfig";
 import { LanguageData } from "./scripts/data";
+import { fetchCarbon } from "./scripts/carbon";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,10 +23,14 @@ class App extends React.Component {
   editorDidMount = (editor, monaco) => {
     const params = new URLSearchParams(window.location.search);
     if (params.has("language")) {
-      this.setState({ language: parseInt(params.get("language")) });
+      this.setState({
+        language: parseInt(params.get("language")),
+      });
     }
     if (params.has("code")) {
-      this.setState({ code: atob(params.get("code")) });
+      this.setState({
+        code: atob(params.get("code")),
+      });
     }
     console.log("editorDidMount", editor);
     editor.focus();
@@ -58,12 +63,19 @@ class App extends React.Component {
       `example.${LanguageData[this.state.language].extension}`
     );
   };
+  generateSnapshot = () => {
+    let imagedata = fetchCarbon(sessionStorage.getItem("code"));
+    const newWindow = window.open(imagedata, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
   setGitUrl = () => {
     let urlPrompt = prompt("url: ", "ophyon/oxyde/master/src/App.js");
     fetch("https://raw.githubusercontent.com/" + urlPrompt)
       .then((response) => response.text())
       .then((data) => {
-        this.setState({ code: data });
+        this.setState({
+          code: data,
+        });
         sessionStorage.setItem("code", data);
       });
   };
@@ -96,6 +108,9 @@ class App extends React.Component {
           <span className="topElement" onClick={this.saveFile}>
             💾
           </span>
+          <span className="topElement" onClick={this.generateSnapshot}>
+            📷
+          </span>
         </div>
         <MonacoEditor
           height="800"
@@ -113,4 +128,3 @@ class App extends React.Component {
 }
 
 export default App;
-

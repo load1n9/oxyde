@@ -4,7 +4,6 @@ import { saveSync } from "save-file";
 import { WhistleLanguageDef } from "./languages/WhistleConfig";
 import { LanguageData } from "./scripts/data";
 import { convertBlobToBase64 } from "./scripts/carbon";
-import files from "./scripts/files"
 
 class App extends React.Component {
   constructor(props) {
@@ -71,7 +70,7 @@ class App extends React.Component {
            let output = await convertBlobToBase64(await fetchResult.blob());
            await saveSync(
                output,
-               `example.png`
+               `snapshot.png`
            )
 
 
@@ -92,16 +91,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { code, theme, language, fileName, setFileName} = this.state;
-
-    const file = files[fileName];
-    let hmm = []
-    for (let key in files) {
-            hmm.push(<button disabled={fileName === files[key].name} onClick={() => setFileName(files[key])}>
-                 files[key]
-            </button>)
-    }
-
+    const { code, theme, language } = this.state;
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: true,
@@ -109,8 +99,7 @@ class App extends React.Component {
       cursorStyle: "line",
       automaticLayout: true,
       cursorBlinking: "blink",
-      autoIndent: true,
-
+      autoIndent: true
     };
     return (
       <div className={theme === "vs-light" ? "light" : "dark"}>
@@ -133,15 +122,11 @@ class App extends React.Component {
           <span className="topElement" onClick={this.generateSnapshot}>
             📷
           </span>
-          {hmm}
         </div>
         <MonacoEditor
           height="800"
-          //language={LanguageData[language].name}
-          //value={code}
-          path={file.name}
-          defaultLanguage={file.language}
-          defaultValue={file.value}
+          language={LanguageData[language].name}
+          value={code}
           options={options}
           onChange={this.onChange}
           editorWillMount={this.editorWillMount}

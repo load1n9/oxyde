@@ -127,7 +127,7 @@ class App extends React.Component {
           <span className="topElement" onClick={this.generateSnapshot}>
             📷
           </span>
-          {this.state.sitter.map((e) => (
+          {files.map((e) => (
              <button disabled={fileName === e.name} onClick={() => setFileName(e)}>
                  e
              </button>
